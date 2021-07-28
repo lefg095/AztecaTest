@@ -33,23 +33,3 @@ class EpisodioAdapter(
 
     }
 }
-/*
-    override fun onBindViewHolder(holder: PersonajesViewHolder, position: Int) {
-        val personaje = personajes[position]
-        holder.bind(personaje, mCallBack)
-    }
-
-    class PersonajesViewHolder(view: View): RecyclerView.ViewHolder(view) {
-        private val binding = ItemPersonajeBinding.bind(view)
-        fun bind(persona: Personajes , mCallBack: ItemPersonaCallback){
-            Picasso.get().load(persona.image).into(binding.imageViewPhoto)
-            binding.namePersonaje.text = persona.name
-            binding.imageViewPhoto.setOnClickListener {
-                mCallBack.showDetailClicket(persona)
-            }
-        }
-    }
-}
-
-
-* */

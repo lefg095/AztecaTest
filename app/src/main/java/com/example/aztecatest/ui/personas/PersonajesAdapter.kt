@@ -1,4 +1,4 @@
-package com.example.aztecatest.view.adapter
+package com.example.aztecatest.ui.personas
 
 import android.view.LayoutInflater
 import android.view.View
@@ -7,7 +7,6 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.aztecatest.R
 import com.example.aztecatest.databinding.ItemPersonajeBinding
 import com.example.aztecatest.model.data.Personajes
-import com.example.aztecatest.ui.personas.ItemPersonaCallback
 import com.squareup.picasso.Picasso
 
 class PersonajesAdapter(

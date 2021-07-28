@@ -12,7 +12,6 @@ import androidx.recyclerview.widget.GridLayoutManager
 import com.example.aztecatest.R
 import com.example.aztecatest.databinding.FragmentPersonaBinding
 import com.example.aztecatest.model.data.Personajes
-import com.example.aztecatest.view.adapter.PersonajesAdapter
 import com.example.aztecatest.viewmodel.PersonasViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -51,6 +50,9 @@ class PersonaFragment : Fragment(), ItemPersonaCallback {
 
     private fun initRecyclerView(personasList: List<Personajes>){
         adapter = PersonajesAdapter(personasList, this)
+        bindding.gridView.apply {
+
+        }
         bindding.gridView.layoutManager = GridLayoutManager(requireContext(), 4)
         bindding.gridView.adapter = adapter
     }

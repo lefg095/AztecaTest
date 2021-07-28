@@ -10,11 +10,8 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.aztecatest.databinding.FragmentDetailsBinding
 import com.example.aztecatest.model.data.Personajes
-import com.example.aztecatest.view.adapter.PersonajesAdapter
 import com.squareup.picasso.Picasso
 import dagger.hilt.android.AndroidEntryPoint
-import java.util.*
-import kotlin.collections.ArrayList as Array
 
 @AndroidEntryPoint
 class DetailsFragment: Fragment() {
