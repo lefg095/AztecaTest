@@ -4,10 +4,18 @@ import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
 import com.example.aztecatest.model.api.ApiService
 import com.example.aztecatest.model.data.Personajes
+import com.example.aztecatest.model.repository.implentation.PersonajeRepository
+import com.example.aztecatest.model.repository.interfaces.IPersonajeRepository
 import com.example.aztecatest.model.response.PersonasResponse
+import com.example.aztecatest.ui.state.PersonasStateEvent
+import com.example.aztecatest.util.DataState
 import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.InternalCoroutinesApi
+import kotlinx.coroutines.flow.collect
+import kotlinx.coroutines.launch
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -17,12 +25,25 @@ import javax.inject.Inject
 class PersonasViewModel
 @Inject
 constructor(
-    private val apiService: ApiService
+    private val personajeRepository: IPersonajeRepository
 ): ViewModel(){
-    private val _personaResponse = MutableLiveData<PersonasResponse<List<Personajes>>>()
-    val personasResponse: LiveData<PersonasResponse<List<Personajes>>> get() = _personaResponse
+    private val _personaResponse = MutableLiveData<DataState<PersonasResponse<List<Personajes>>>>()
+    val personasResponse: LiveData<DataState<PersonasResponse<List<Personajes>>>> get() = _personaResponse
 
-    fun makeApicall(){
+
+    fun makeApicall(personasStateEvent: PersonasStateEvent){
+        when (personasStateEvent){
+            is PersonasStateEvent.GetPersonajes ->{
+                viewModelScope.launch {
+                    personajeRepository.getPersonasjes(
+                        ""
+                    ).collect{
+                        _personaResponse.value = it
+                    }
+                }
+            }
+        }
+    /*fun makeApicall(){
         val call: Call<PersonasResponse<List<Personajes>>> = apiService.getPersonajes("")
         call.enqueue(object : Callback<PersonasResponse<List<Personajes>>>{
             override fun onResponse(
@@ -39,7 +60,8 @@ constructor(
             override fun onFailure(call: Call<PersonasResponse<List<Personajes>>>, t: Throwable) {
                 Log.e("AztecaTest", "error en respuesta")
             }
-        })
+        })*/
+
 
     }
 }
