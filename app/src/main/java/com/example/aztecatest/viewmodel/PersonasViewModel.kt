@@ -36,7 +36,7 @@ constructor(
             is PersonasStateEvent.GetPersonajes ->{
                 viewModelScope.launch {
                     personajeRepository.getPersonasjes(
-                        ""
+                        personasStateEvent.url
                     ).collect{
                         _personaResponse.value = it
                     }
