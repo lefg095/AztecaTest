@@ -12,13 +12,11 @@ class PersonajeRepository(
     private val apiService: ApiService
 ) : IPersonajeRepository {
 
-    override fun getPersonasjes(
-        url: String
+    override fun getPersonajes(
     ): Flow<DataState<PersonasResponse<List<Personajes>>>> = flow {
         emit(DataState.Loading("Cargando personajes..."))
         try{
             val response = apiService.getPersonajes(
-                url
             )
             emit(DataState.Success(response))
         }catch (e:Exception){

@@ -1,6 +1,7 @@
 package com.example.aztecatest.ui.personas
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -14,6 +15,7 @@ import com.example.aztecatest.R
 import com.example.aztecatest.databinding.FragmentPersonaBinding
 import com.example.aztecatest.model.data.Personajes
 import com.example.aztecatest.ui.state.PersonasStateEvent
+import com.example.aztecatest.util.AlertsNotifications
 import com.example.aztecatest.util.DataState
 import com.example.aztecatest.viewmodel.PersonasViewModel
 import dagger.hilt.android.AndroidEntryPoint
@@ -46,15 +48,17 @@ class PersonaFragment : Fragment(), ItemPersonaCallback {
                     Toast.makeText(context, "Cargando personajes", Toast.LENGTH_SHORT).show()
                 }
                 is DataState.Success -> {
+                    //*AlertsNotifications().alertNormal(this.requireContext())
                     initRecyclerView(it.response.data!!)
                 }
                 is DataState.Error -> {
+                    Log.e("AztecaTest", it.error.message!!)
                     Toast.makeText(context, "Error", Toast.LENGTH_SHORT).show()
                 }
             }
         })
         personasViewModel.makeApicall(
-            PersonasStateEvent.GetPersonajes("")
+            PersonasStateEvent.GetPersonajes
         )
     }
 

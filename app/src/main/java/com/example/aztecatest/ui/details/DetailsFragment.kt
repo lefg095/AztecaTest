@@ -5,7 +5,9 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toolbar
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.aztecatest.databinding.FragmentDetailsBinding
@@ -17,6 +19,7 @@ import dagger.hilt.android.AndroidEntryPoint
 class DetailsFragment: Fragment() {
     private lateinit var binding: FragmentDetailsBinding
     private var adapter: EpisodioAdapter? = null
+    private var personaName = ""
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -37,6 +40,8 @@ class DetailsFragment: Fragment() {
         personas.let {
             setData(personas)
         }
+        val toolbar = binding.toolbar
+        toolbar.setTitle(personas.name)
     }
 
     private fun initRecyclerView(episodios: List<String>){

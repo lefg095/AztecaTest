@@ -6,8 +6,7 @@ import retrofit2.http.GET
 import retrofit2.http.Url
 
 interface ApiService {
-    @GET
-    fun getPersonajes(
-        @Url url: String
+    @GET("character/")
+    suspend fun getPersonajes(
     ): PersonasResponse<List<Personajes>>
 }

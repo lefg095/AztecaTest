@@ -6,5 +6,5 @@ import com.example.aztecatest.util.DataState
 import kotlinx.coroutines.flow.Flow
 
 interface IPersonajeRepository {
-    fun getPersonasjes(url: String): Flow<DataState<PersonasResponse<List<Personajes>>>>
+    fun getPersonajes(): Flow<DataState<PersonasResponse<List<Personajes>>>>
 }

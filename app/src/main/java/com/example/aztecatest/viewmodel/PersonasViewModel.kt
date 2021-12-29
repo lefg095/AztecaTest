@@ -30,13 +30,11 @@ constructor(
     private val _personaResponse = MutableLiveData<DataState<PersonasResponse<List<Personajes>>>>()
     val personasResponse: LiveData<DataState<PersonasResponse<List<Personajes>>>> get() = _personaResponse
 
-
     fun makeApicall(personasStateEvent: PersonasStateEvent){
         when (personasStateEvent){
             is PersonasStateEvent.GetPersonajes ->{
                 viewModelScope.launch {
-                    personajeRepository.getPersonasjes(
-                        personasStateEvent.url
+                    personajeRepository.getPersonajes(
                     ).collect{
                         _personaResponse.value = it
                     }
