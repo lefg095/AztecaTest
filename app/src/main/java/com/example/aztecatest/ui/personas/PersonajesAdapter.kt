@@ -12,7 +12,7 @@ import com.squareup.picasso.Picasso
 class PersonajesAdapter(
     val personajes: List<Personajes>,
     val mCallBack: ItemPersonaCallback
-    ) : RecyclerView.Adapter<PersonajesAdapter.PersonajesViewHolder>(){
+) : RecyclerView.Adapter<PersonajesAdapter.PersonajesViewHolder>(){
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PersonajesViewHolder {
         val layoutInflater = LayoutInflater.from(parent.context)
@@ -39,4 +39,3 @@ class PersonajesAdapter(
         }
     }
 }
-

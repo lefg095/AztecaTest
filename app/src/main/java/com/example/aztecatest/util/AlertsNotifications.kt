@@ -32,7 +32,6 @@ class AlertsNotifications {
         btn_ok.setTextColor(context.resources.getColor(R.color.green))
         val btn_cancelar = dialog.getButton(DialogInterface.BUTTON_NEGATIVE)
         btn_cancelar.setTextColor(context.resources.getColor(R.color.red))
-
     }
 
 }

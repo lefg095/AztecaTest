@@ -15,7 +15,6 @@ import com.example.aztecatest.R
 import com.example.aztecatest.databinding.FragmentPersonaBinding
 import com.example.aztecatest.model.data.Personajes
 import com.example.aztecatest.ui.state.PersonasStateEvent
-import com.example.aztecatest.util.AlertsNotifications
 import com.example.aztecatest.util.DataState
 import com.example.aztecatest.viewmodel.PersonasViewModel
 import dagger.hilt.android.AndroidEntryPoint
